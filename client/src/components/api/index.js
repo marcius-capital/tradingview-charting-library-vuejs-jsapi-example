@@ -6,7 +6,7 @@
  * Stream implementation: https://github.com/tradingview/charting-library-tutorial/blob/master/documentation/streaming-implementation.md
  */
 
-import { getExchangeServerTime, getSymbols, getKlines, subscribeKline, unsubscribeKline, interval } from './helpers'
+import { getExchangeServerTime, getSymbols, getKlines, subscribeKline, unsubscribeKline, checkInterval } from './helpers'
 
 const configurationData = {
 	supports_marks: false,
@@ -72,24 +72,27 @@ export default {
 
 	},
 	// get historical data for the symbol
-	getBars: (symbolInfo, resolution, from, to, onHistoryCallback, onErrorCallback, firstDataRequest) => {
-		console.log('[getBars]: Method call', symbolInfo)
+	getBars: async (symbolInfo, interval, from, to, onHistoryCallback, onErrorCallback, firstDataRequest) => {
+		console.log('[getBars] Method call', symbolInfo, interval)
+		console.log('[getBars] First request', firstDataRequest)
 
-		// Interval wrapper
-		const _interval = interval[resolution]
-
-		if (!_interval) {
-			onErrorCallback('Invalid interval')
+		if (!checkInterval(interval)) {
+			return onErrorCallback('[getBars] Invalid interval')
 		}
 
-		getKlines(symbolInfo.name, _interval).then(res => onHistoryCallback(res))
+		const klines = await getKlines({ symbol: symbolInfo.name, interval, from, to })
+		if (klines.length > 0) {
+			return onHistoryCallback(klines)
+		}
+
+		onErrorCallback('Klines data error')
+
 	},
 	// subscription to real-time updates
-	subscribeBars: (symbolInfo, resolution, onRealtimeCallback, subscribeUID, onResetCacheNeededCallback) => {
+	subscribeBars: (symbolInfo, interval, onRealtimeCallback, subscribeUID, onResetCacheNeededCallback) => {
 		console.log('[subscribeBars]: Method call with subscribeUID:', subscribeUID);
 
-		const _interval = interval[resolution]
-		subscribeKline({ symbol: symbolInfo.name, interval: _interval, uniqueID: subscribeUID, }, cb => onRealtimeCallback(cb))
+		subscribeKline({ symbol: symbolInfo.name, interval, uniqueID: subscribeUID, }, cb => onRealtimeCallback(cb))
 	},
 	unsubscribeBars: (subscriberUID) => {
 		console.log('[unsubscribeBars]: Method call with subscriberUID:', subscriberUID);

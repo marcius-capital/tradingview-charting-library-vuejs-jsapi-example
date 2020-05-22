@@ -1,18 +1,34 @@
-# TradingView Charting Library, Vue.js and JSAPI Integration Example
+# TradingView Charting Library. Vue.js and JS API integration example for Binance exchange
 
-**Exchange:** Binance
+Ready-made example of integration with updating data via WebSocket
 
-**NOTE**: For Chrome Browser need add params `-incognito -private chromium-browser --disable-web-security --user-data-dir="C:/Chrome dev session"`. Because [binance-api](https://www.npmjs.com/package/@marcius-capital/binance-api) makes request directly from browser to exchange. Chrome, for security reasons, prohibits making such requests. 
-
-An alternative solution is to use proxy. Until this feature is added.
+**NOTE**: Binance does not allow you to request data directly from browser, so a proxy is required. For this, routing through the server is used.
 
 ![tradingview-charting-library-vuejs-jsapi-example](/docs/chart.jpg)
 
 ## How to start
 
-1. Install dependencies `npm install`.
-2. Copy `charting_library` folder from https://github.com/tradingview/charting_library/ to `/public` folder. The earliest supported version of the Charting Library is 1.12. If you get 404 then you need to [request an access to this repository](https://www.tradingview.com/HTML5-stock-forex-bitcoin-charting-library/).
-3. Run `npm run serve`. It will build the project and open a default browser with the Charting Library.
+1. Install dependences for client and server side
+
+```node
+$ cd client && npm install // cd client && yarn
+$ cd server && npm install // cd server && yarn
+```
+
+2. Copy `charting_library` folder from https://github.com/tradingview/charting_library/ to `/public` folder. The earliest supported version of the Charting Library is 1.15. If you get 404 then you need to [request an access to this repository](https://www.tradingview.com/HTML5-stock-forex-bitcoin-charting-library/).
+
+3. Run both client and server
+
+```node
+$ cd client && npm run serve
+$ cd server && npm run dev
+```
+
+4. Build for production
+
+```node
+$ cd client && npm run build
+```
 
 ## What is Charting Library
 
@@ -22,6 +38,13 @@ Charting Library is a standalone solution for displaying charts. This free, down
 
 Vue is a progressive framework for building user interfaces. Unlike other monolithic frameworks, Vue is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects.
 
-## About This Project
+## Axios proxy issue
 
-This project was bootstrapped with [Vue CLI](https://cli.vuejs.org/).
+Axios - a module that allows you to make REST requests. Its build does not allow the use of proxy on client-side, only on the nodejs server. Our [binance-api](https://github.com/marcius-capital/binance-api) module uses a [wrapper](https://github.com/marcius-capital/binance-api/blob/master/src/spot/modules/proxy.js) to solve this problem.
+
+## Stay in touch
+
+Feel free to ask quetions 😊
+
+* Discord: Nikita Marcius#2274
+* Telegram: https://ttttt.me/nikitamarcius

@@ -78,6 +78,7 @@
         fullscreen: this.fullscreen,
         autosize: this.autosize,
         studies_overrides: this.studiesOverrides,
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
       };
 
       const tvWidget = new widget(widgetOptions);
