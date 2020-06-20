@@ -44,7 +44,17 @@ Axios - a module that allows you to make REST requests. Its build does not allow
 
 ## Stay in touch
 
-Feel free to ask quetions 😊
+Feel free to ask questions 😊
 
 * Discord: Nikita Marcius#2274
-* Telegram: https://ttttt.me/nikitamarcius
+* Telegram: [@nikitamarcius](https://ttttt.me/nikitamarcius)
+
+## Contributors
+
+<a href="https://github.com/marcius-studio">
+<img src="https://raw.githubusercontent.com/marcius-studio/storage/master/badge-marcius-studio.svg" height="60">
+</a>   
+
+## Licence
+
+[Apache License Version 2.0](LICENSE.md)
