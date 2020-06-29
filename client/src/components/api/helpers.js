@@ -36,7 +36,7 @@ export const getSymbols = () => {
 
 const formatingKline = ({ openTime, open, high, low, close, volume }) => {
 	return {
-		time: openTime / 1000,
+		time: openTime,
 		open,
 		high,
 		low,
