@@ -1,6 +1,6 @@
-# TradingView Charting Library. Vue.js and JS API integration example for Binance exchange
+# TradingView JS API Binance
 
-Ready-made example of integration with updating data via WebSocket
+Ready-made example of integration with updating data via WebSocket. Vue.js and JS API integration example for Binance exchange
 
 **NOTE**: Binance does not allow you to request data directly from browser, so a proxy is required. For this, routing through the server is used.
 
@@ -44,7 +44,17 @@ Axios - a module that allows you to make REST requests. Its build does not allow
 
 ## Stay in touch
 
-Feel free to ask quetions 😊
+Feel free to ask questions 😊
 
 * Discord: Nikita Marcius#2274
-* Telegram: https://ttttt.me/nikitamarcius
+* Telegram: [@nikitamarcius](https://ttttt.me/nikitamarcius)
+
+## Contributors
+
+<a href="https://github.com/marcius-studio">
+<img src="https://raw.githubusercontent.com/marcius-studio/storage/master/badge-marcius-studio.svg" height="60">
+</a>   
+
+## Licence
+
+[Apache License Version 2.0](LICENSE.md)
