@@ -6,6 +6,11 @@ Ready-made example of integration with updating data via WebSocket. Vue.js and J
 
 ![tradingview-charting-library-vuejs-jsapi-example](/docs/chart.jpg)
 
+## Articles
+
+* **[Connecting and settings TradingView with JS API and UDF adapter - Medium.com](https://medium.com/marcius-studio/connecting-and-settings-tradingview-with-js-api-and-udf-adapter-b790297a31fa)**
+* **[Financial charts for your application - Medium.com](https://medium.com/marcius-studio/financial-charts-for-your-application-cfcceb147786)**
+
 ## How to start
 
 1. Install dependences for client and server side
