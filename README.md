@@ -1,10 +1,6 @@
 # TradingView JS API Binance
 
-Ready-made example of integration with updating data via WebSocket. Vue.js and JS API integration example for Binance exchange
-
-**Note**
-
-Binance does not allow you to request data directly from browser, so a proxy is required. For this, routing through the server is used.
+Vue.js and JS API integration example for Binance exchange with WebSocket stream.
 
 ![tradingview-charting-library-vuejs-jsapi-example](/docs/chart.jpg)
 
