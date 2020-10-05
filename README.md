@@ -2,7 +2,9 @@
 
 Ready-made example of integration with updating data via WebSocket. Vue.js and JS API integration example for Binance exchange
 
-**NOTE**: Binance does not allow you to request data directly from browser, so a proxy is required. For this, routing through the server is used.
+**Note**
+
+Binance does not allow you to request data directly from browser, so a proxy is required. For this, routing through the server is used.
 
 ![tradingview-charting-library-vuejs-jsapi-example](/docs/chart.jpg)
 
@@ -11,55 +13,62 @@ Ready-made example of integration with updating data via WebSocket. Vue.js and J
 * **[Connecting and settings TradingView with JS API and UDF adapter - Medium.com](https://medium.com/marcius-studio/connecting-and-settings-tradingview-with-js-api-and-udf-adapter-b790297a31fa)**
 * **[Financial charts for your application - Medium.com](https://medium.com/marcius-studio/financial-charts-for-your-application-cfcceb147786)**
 
-## How to start
+## Before begin
 
-1. Install dependences for client and server side
+The Charting Library is free, but its code is in the private repository on GitHub.
+Make sure that you have access to this repository: <https://github.com/tradingview/charting_library/>.
 
-```node
-$ cd client && npm install // cd client && yarn
-$ cd server && npm install // cd server && yarn
+If you see 404 error page, then you need to request access to this repository at <https://tradingview.com/HTML5-stock-forex-bitcoin-charting-library/?feature=technical-analysis-charts> and click on the `Get Library` button.
+
+## Features
+
+**Client-side**
+
+* [x] Vuejs 2.x
+* [x] @vue/cli-service (Webpack 4, SASS/SCSS)
+
+**Server-side**
+
+* [x] Fastifyjs
+* [x] fastify-http-proxy
+
+## Installation 
+
+Install dependences for client and server side.
+
+```bash
+$ cd client && npm install
+$ cd server && npm install
 ```
 
-2. Copy `charting_library` folder from https://github.com/tradingview/charting_library/ to `/public` folder. The earliest supported version of the Charting Library is 1.15. If you get 404 then you need to [request an access to this repository](https://www.tradingview.com/HTML5-stock-forex-bitcoin-charting-library/).
+Copy `charting_library` folder from https://github.com/tradingview/charting_library/ to `/public` folder. The earliest supported version of the Charting Library is 1.15. If you get 404 then you need to [request an access to this repository](https://www.tradingview.com/HTML5-stock-forex-bitcoin-charting-library/).
 
-3. Run both client and server
+## Commands
 
-```node
-$ cd client && npm run serve
-$ cd server && npm run dev
-```
-
-4. Build for production
-
-```node
+```bash
+// client\package.json
+$ cd client && npm run serve // run
 $ cd client && npm run build
+
+// server\package.json
+$ cd server && npm run start // run
+$ cd server && npm run build
 ```
 
 ## What is Charting Library
 
 Charting Library is a standalone solution for displaying charts. This free, downloadable library is hosted on your servers and is connected to your data feed to be used in your website or app. [Learn more and download](https://www.tradingview.com/HTML5-stock-forex-bitcoin-charting-library/).
 
-## What is Vue.js
+## What is Vuejs
 
 Vue is a progressive framework for building user interfaces. Unlike other monolithic frameworks, Vue is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects.
 
-## Axios proxy issue
+## Issues
 
 Axios - a module that allows you to make REST requests. Its build does not allow the use of proxy on client-side, only on the nodejs server. Our [binance-api](https://github.com/marcius-capital/binance-api) module uses a [wrapper](https://github.com/marcius-capital/binance-api/blob/master/src/spot/modules/proxy.js) to solve this problem.
-
-## Stay in touch
-
-Feel free to ask questions 😊
-
-* Discord: Nikita Marcius#2274
-* Telegram: [@nikitamarcius](https://ttttt.me/nikitamarcius)
 
 ## Contributors
 
 <a href="https://github.com/marcius-studio">
 <img src="https://raw.githubusercontent.com/marcius-studio/storage/master/badge-marcius-studio.svg" height="60">
-</a>   
-
-## Licence
-
-[Apache License Version 2.0](LICENSE.md)
+</a>
