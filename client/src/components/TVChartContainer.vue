@@ -3,9 +3,7 @@
 </template>
 
 <script>
-  import Datafeed from './api'
-
-  import { widget } from '../../public/charting_library/charting_library.min';
+  import api from './api'
 
   export default {
     name: 'TVChartContainer',
@@ -27,7 +25,7 @@
         type: String,
       },
       libraryPath: {
-        default: '/charting_library/',
+        default: '/charting_library/charting_library/',
         type: String,
       },
       chartsStorageUrl: {
@@ -63,7 +61,7 @@
       const widgetOptions = {
         symbol: this.symbol,
         // BEWARE: no trailing slash is expected in feed URL
-        datafeed: Datafeed, // new window.Datafeeds.UDFCompatibleDatafeed(this.datafeedUrl),
+        datafeed: api, // new window.Datafeeds.UDFCompatibleDatafeed(this.datafeedUrl),
         interval: this.interval,
         container_id: this.containerId,
         library_path: this.libraryPath,
@@ -79,12 +77,11 @@
         autosize: this.autosize,
         studies_overrides: this.studiesOverrides,
         timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
-      };
+      }
 
-      const tvWidget = new widget(widgetOptions);
-      this.tvWidget = tvWidget;
+      this.tvWidget = new TradingView.widget(widgetOptions)
 
-      tvWidget.onChartReady(() => {
+      this.tvWidget.onChartReady(() => {
         /*
         tvWidget.headerReady().then(() => {
           const button = tvWidget.createButton();
@@ -106,13 +103,13 @@
 
 */
 
-      });
+      })
 
     },
     destroyed() {
       if (this.tvWidget !== null) {
-        this.tvWidget.remove();
-        this.tvWidget = null;
+        this.tvWidget.remove()
+        this.tvWidget = null
       }
     }
   }

@@ -1,9 +1,10 @@
 build/
 dist/
 node_modules/
-public/charting_library/
-public/datafeeds/
-src/charting_library.min.js
 static/
 
 yarn.lock
+
+# tradingview
+client/public/charting_library/charting_library
+client/public/charting_library/datafeeds
